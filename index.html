@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>For My Love</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#b30000;
+color:white;
+overflow-x:hidden;
+}
+
+/* trái tim rơi */
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear infinite;
+color:#ffcccc;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10px);}
+100%{transform:translateY(110vh);}
+}
+
+/* intro */
+
+#intro{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.letter-img{
+width:200px;
+margin-bottom:20px;
+}
+
+.start-btn{
+font-size:40px;
+background:white;
+color:red;
+border:none;
+border-radius:50%;
+width:100px;
+height:100px;
+cursor:pointer;
+}
+
+/* main */
+
+#main{
+display:none;
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+/* title giống youtube */
+
+.video-title{
+font-size:28px;
+font-weight:bold;
+margin-bottom:15px;
+text-align:left;
+}
+
+/* video container */
+
+.video-container{
+width:100%;
+display:flex;
+justify-content:center;
+}
+
+/* video dọc hiển thị đẹp */
+
+video{
+width:100%;
+max-height:80vh;
+border-radius:10px;
+background:black;
+}
+
+/* letter */
+
+.letter{
+margin-top:30px;
+background:#1a1a1a;
+padding:20px;
+border-radius:10px;
+line-height:1.8;
+font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- intro -->
+
+<div id="intro">
+
+<img src="letter.png" class="letter-img">
+
+<button class="start-btn" onclick="start()">▶</button>
+
+</div>
+
+<!-- main -->
+
+<div id="main">
+
+<div class="video-title">
+Anh Muốn Đứng Cùng Em Trước Thế Giới Này ❤️
+</div>
+
+<div class="video-container">
+
+<video id="video" controls playsinline>
+<source src="Video.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<div class="letter">
+
+Anh xuất hiện tại đây, không phải vì anh nghĩ em cần một bờ vai,<br><br>
+
+mà vì anh đã thấy em một mình đứng trước thế giới rộng lớn này.<br><br>
+
+Và anh muốn đứng cùng em, trước thế giới đó.
+
+</div>
+
+</div>
+
+<script>
+
+/* trái tim rơi */
+
+for(let i=0;i<40;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"%";
+heart.style.animationDuration=3+Math.random()*5+"s";
+document.body.appendChild(heart);
+}
+
+/* start */
+
+function start(){
+
+document.getElementById("intro").style.display="none";
+document.getElementById("main").style.display="block";
+
+/* phát video */
+
+document.getElementById("video").play();
+
+}
+
+</script>
+
+</body>
+</html>
